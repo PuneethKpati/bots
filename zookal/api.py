@@ -1,5 +1,6 @@
 import requests
 import json
+import time
 
 
 class API:
@@ -43,7 +44,9 @@ class API:
 			self.seen = new_seen
 			count += 1
 
-			
+			time.sleep(20)
+
+
 
 
 	def get_questions(self):
