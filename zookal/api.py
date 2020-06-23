@@ -59,7 +59,7 @@ class API:
 			requestNo += 1
 
 			# Don't send a request for 20 seconds
-			time.sleep(20)
+			time.sleep(2)
 
 		return
 
