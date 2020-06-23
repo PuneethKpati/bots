@@ -1,6 +1,9 @@
 import requests
 import json
 
+
+
+
 file = open('auth_token.txt', 'r')
 token = file.readlines()
 token = token[0]
@@ -23,6 +26,7 @@ resp = requests.get('https://api.homework.zookal.com/api/v1/questions?per=100&pa
 
 obj = json.loads(resp.text)
 
+print(len(obj['questions']))
 for question in obj['questions']:
 	print('======================================\nquestion:' + str(question['id'])  + '\n======================================' )
 	print('status :', question['status'])
