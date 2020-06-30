@@ -27,23 +27,26 @@ dialogues = [
 	
 
 token = open('token.txt', 'r').read().strip()
-client = commands.Bot(command_prefix='/')
+client = commands.Bot(command_prefix=':')
 
-
+# Quick little notification on the terminal to show that the bot is active
 @client.event
 async def on_ready():
 	print('Jarvis lives...')
 
+# A cute little feature that I thought would lighten things up
+# everytime someone mesages 'hey jarvis' Jarvis spits out a line 
+# from the Avengers Saga
 @client.event
 async def on_message(message):
-	
-
+	# We don't want to keep triggering this function from our own messages
 	if message.author == client.user:
 		return 
 
+	# if the message starts with 'hey jarvis'
+	# send a random dialogue back to the channel
 	if message.content.lower().startswith('hey jarvis') :
 		dialogueNo = int(random.random()*len(dialogues))
-
 		await message.channel.send(dialogues[dialogueNo])
 
 client.run(token)
