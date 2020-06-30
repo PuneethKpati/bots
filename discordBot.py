@@ -42,9 +42,13 @@ async def heyJarvis(ctx):
 	dialogueNo = int(random.random()*len(dialogues))
 	await ctx.send(dialogues[dialogueNo])
 
-@client.command(pass_context=True)
+@client.command()
 async def test(ctx):
 	print('hello')
 	await ctx.send('this shit works?')
+
+@client.command(pass_context=True)
+async def zookal(ctx):
+	await ctx.send('Z o o k a l ?')
 
 client.run(token)
