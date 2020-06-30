@@ -100,5 +100,5 @@ class API:
 			self.print(question)
 
 
-api = API()
-questions = api.crawl_new_questions()
+# api = API()
+# questions = api.crawl_new_questions()
