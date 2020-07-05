@@ -2,6 +2,7 @@
 import discord
 import random
 from discord.ext import commands
+from support import Support
 
 dialogues = [
 "Remember, with great power comes great responsibility.",
@@ -42,13 +43,23 @@ async def heyJarvis(ctx):
 	dialogueNo = int(random.random()*len(dialogues))
 	await ctx.send(dialogues[dialogueNo])
 
-@client.command()
-async def test(ctx):
-	print('hello')
-	await ctx.send('this shit works?')
-
 @client.command(pass_context=True)
 async def zookal(ctx):
 	await ctx.send('Z o o k a l ?')
+
+@client.command()
+async def support(ctx):
+	await ctx.send('Starting the flag search...')
+	sup = Support()
+	flag = sup.run()
+	message = """
+	```
+	{}
+	```
+	""".format(flag)
+	await ctx.send(message)
+
+
+
 
 client.run(token)
