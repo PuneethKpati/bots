@@ -69,6 +69,7 @@ class API:
 	def get_questions(self):
 		# send the request with the proper headers
 		resp = requests.get('https://api.homework.zookal.com/api/v1/questions?per=100&page=1', headers=self.headers)
+		print(resp)
 		# convert the http response text into JSON objects for easier data management 
 		obj = json.loads(resp.text)
 
@@ -100,5 +101,5 @@ class API:
 			self.print(question)
 
 
-# api = API()
-# questions = api.crawl_new_questions()
+api = API()
+questions = api.crawl_new_questions()
