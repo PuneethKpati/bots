@@ -1,2 +1,4 @@
 /scripts/zookal/auth_token.txt
 token.txt
+6443.key
+6443.pem
