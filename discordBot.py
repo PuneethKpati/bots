@@ -2,7 +2,7 @@
 import discord
 import random
 from discord.ext import commands
-from support import Support
+from support.support import Support
 
 dialogues = [
 "Remember, with great power comes great responsibility.",

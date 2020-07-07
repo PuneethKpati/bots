@@ -1,6 +1,7 @@
 
 import requests 
 import base58
+import os 
 
 class Support:
 	def run(self):
@@ -11,7 +12,10 @@ class Support:
 				originalB = bytes(original, 'utf-8')
 		
 				file = str(base58.b58encode(originalB), 'utf-8')
-				resp = requests.get('https://support.quoccabank.com/raw/{}'.format(file), cert= ('./6443.pem', './6443.key'))
+
+				# openfile = open('../keys/6443.pem', 'r')
+				# print(openfile.read())
+				resp = requests.get('https://support.quoccabank.com/raw/{}'.format(file), cert= ('./keys/6443.pem', './keys/6443.key'))
 
 				print(original, resp.status_code)
 
@@ -35,3 +39,6 @@ class Support:
 	async def test(self, ctx):
 		await ctx.send('Test{FLAG}')
 		return 'Test{FLAG}'
+
+sup = Support()
+flag = sup.run()
